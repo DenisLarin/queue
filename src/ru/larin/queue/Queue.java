@@ -7,11 +7,12 @@ public class Queue<E> implements Iqueue<E> {
     private Node<E> tail;
     private Node<E> head;
     private int size = 0;
+
     @Override
     public void push(E data) {
         Node<E> node = new Node<E>(data);
         node.setNextElementLink(tail);
-        if(isEmpty())
+        if (isEmpty())
             head = node;
         else
             tail.setNextElementLink(node);
@@ -22,7 +23,7 @@ public class Queue<E> implements Iqueue<E> {
     @Override
     public E pop() {
         E removeObject = null;
-        if(!isEmpty()){
+        if (!isEmpty()) {
             removeObject = head.getData();
             head = head.getNextElementLink();
             size--;
@@ -43,5 +44,21 @@ public class Queue<E> implements Iqueue<E> {
     @Override
     public boolean isEmpty() {
         return size() == 0;
+    }
+
+    @Override
+    public E get(int rowIndex) {
+        E retObj = null;
+        if (rowIndex < 0 || rowIndex > size())
+            return null;
+        else {
+            int i = 0;
+            Node<E> node = head;
+            while (i != rowIndex) {
+                node = node.getNextElementLink();
+            }
+            retObj = node.getData();
+        }
+        return retObj;
     }
 }

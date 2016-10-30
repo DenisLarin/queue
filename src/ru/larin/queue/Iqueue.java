@@ -9,4 +9,5 @@ public interface Iqueue<E> {
     public E front();
     public int size();
     public boolean isEmpty();
+    public E get(int rowIndex);
 }
