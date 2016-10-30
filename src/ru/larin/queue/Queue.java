@@ -49,13 +49,14 @@ public class Queue<E> implements Iqueue<E> {
     @Override
     public E get(int rowIndex) {
         E retObj = null;
-        if (rowIndex < 0 || rowIndex > size())
+        if (rowIndex < 0 || rowIndex >= size())
             return null;
         else {
             int i = 0;
             Node<E> node = head;
             while (i != rowIndex) {
                 node = node.getNextElementLink();
+                i++;
             }
             retObj = node.getData();
         }

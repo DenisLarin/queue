@@ -12,5 +12,6 @@ public class Main {
     public static void main(String[] args) {
         queue = new Queue<People>();
         mainWindow = new MainWindow();
+
     }
 }
