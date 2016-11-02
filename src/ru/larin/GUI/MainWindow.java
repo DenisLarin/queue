@@ -16,6 +16,7 @@ public class MainWindow extends JFrame {
     private TableModel tableModel;
     private JButton buttonAdd;
     private JButton buttonRemove;
+    private JButton buttonShowFront;
     private JScrollPane scrollPane;
     public MainWindow(){
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -36,7 +37,7 @@ public class MainWindow extends JFrame {
 
         /*кнопки*/
         buttonAdd = new JButton("Add");
-        buttonAdd.setBounds(535,10,89,23);
+        buttonAdd.setBounds(500,10,130,20);
         getContentPane().add(buttonAdd);
         buttonAdd.addActionListener(new ActionListener() {
             @Override
@@ -67,7 +68,7 @@ public class MainWindow extends JFrame {
         });
 
         buttonRemove = new JButton("Remove first");
-        buttonRemove.setBounds(535,45,89,23);
+        buttonRemove.setBounds(500,40,130,20);
         getContentPane().add(buttonRemove);
         buttonRemove.addActionListener(new ActionListener() {
             @Override
@@ -82,6 +83,15 @@ public class MainWindow extends JFrame {
                     JOptionPane.showMessageDialog(null,"You can remove first element only");
                 }
                 table.updateUI();
+            }
+        });
+        buttonShowFront = new JButton("Show front");
+        buttonShowFront.setBounds(500,70,130,20);
+        getContentPane().add(buttonShowFront);
+        buttonShowFront.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null,Main.queue.front().toString());
             }
         });
         setVisible(true);
